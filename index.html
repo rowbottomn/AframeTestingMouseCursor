@@ -20,21 +20,24 @@
 
     <script src="script.js">
     </script>
-    <!--We will still be using tags but many of the tags will be related to the Aframe library-->
-    <!--unlike regular HTML, attributes are changed in the tags rather than the CSS file-->
 
 
-    <!--all the vr content will live inside a a-scene. Which is like a container div-->
     <a-scene>
 
-   <a-entity id="rig"
+      <a-entity id="rig"
           movement-controls="fly: true; easingY: 30"
           position="0 0 0">
-  <a-entity camera
+        <a-entity camera
             position="0 1.6 0"
-            look-controls="pointerLockEnabled: true"></a-entity>
-  </a-entity>
-
+            look-controls="pointerLockEnabled: true">
+            <a-entity cursor="fuse: true; fuseTimeout: 500"    raycaster="objects: [data-raycastable]"
+            position="0 0 -1"
+            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.09"
+            material="color: #33AABB; shader: flat; transparent : true; opacity:0.5">
+            </a-entity> 
+        </a-entity>
+      </a-entity>
+ 
       <!--a-entities live in a-scenes and are containers for components-->
       <!--there are specialized a-entities that have their own identities, like a-sky and a-text-->
       <a-sky color="lightblue"></a-sky>
